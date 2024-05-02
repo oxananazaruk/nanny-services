@@ -1,12 +1,12 @@
-import { Outlet } from "react-router-dom";
-import { Header } from "components/Header/Header";
-// import { GlobalStyle } from "../../GlobalStyles";
-import { Suspense } from "react";
+import { Outlet } from 'react-router-dom';
+import { Header } from '../../components/Header/Header';
+import { GlobalStyle } from '../../GlobalStyles';
+import { Suspense } from 'react';
 
 const SharedLayout = () => {
   return (
     <>
-      {/* <GlobalStyle /> */}
+      <GlobalStyle />
       <Header />
       <main>
         <Suspense fallback={<p>Loading...</p>}>
