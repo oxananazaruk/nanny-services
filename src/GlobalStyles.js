@@ -40,8 +40,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .container {
-        width: 1240px;
-        padding: 0 20px;
+        width: 1440px;
+        padding: 32px;
         margin: 0 auto;
     }
 
