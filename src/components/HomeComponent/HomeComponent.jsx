@@ -1,11 +1,31 @@
-import { Link } from 'react-router-dom';
+import {
+  HomeBtn,
+  HomeText,
+  HomeTitle,
+  IconHome,
+  SectionHome,
+  WrappHome,
+  WrappTitle,
+} from './HomeComponent.styled';
+import sprite from '../../img/sprite.svg';
 
 export const HomeComponent = () => {
   return (
-    <div>
-      <h1>Make Life Easier for the Family:</h1>
-      <p>Find Babysitters Online for All Occasions</p>
-      <Link to="/nannies">Get started</Link>
+    <div className="container">
+      <WrappHome>
+        <SectionHome>
+          <WrappTitle>
+            <HomeTitle>Make Life Easier for the Family:</HomeTitle>
+            <HomeText>Find Babysitters Online for All Occasions</HomeText>
+            <HomeBtn to="/nannies">
+              Get started{' '}
+              <IconHome>
+                <use href={`${sprite}#arrow`} />
+              </IconHome>
+            </HomeBtn>
+          </WrappTitle>
+        </SectionHome>
+      </WrappHome>
     </div>
   );
 };
