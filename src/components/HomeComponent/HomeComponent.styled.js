@@ -3,6 +3,10 @@ import image1x from '../../img/baby1x.jpg';
 import image2x from '../../img/baby2x.jpg';
 import { Link } from 'react-router-dom';
 
+export const HomeWrapper = styled.div`
+  padding: 32px 0;
+`;
+
 export const SectionHome = styled.section`
   height: 100vh;
   width: 100%;

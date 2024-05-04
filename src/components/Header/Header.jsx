@@ -1,16 +1,24 @@
-import { NavLink } from 'react-router-dom';
+import {
+  HeaderLogo,
+  HeaderNav,
+  HeaderStyled,
+  LinkStyled,
+  NavList,
+} from './Header.styled';
 
 export const Header = () => {
   return (
-    <header>
-      <div>
-        <NavLink to="/">Nanny.Services</NavLink>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/nannies">Nannies</NavLink>
-          <NavLink to="/favorites">Favorites</NavLink>
-        </nav>
+    <HeaderNav>
+      <div className="container">
+        <HeaderStyled>
+          <HeaderLogo to="/">Nanny.Services</HeaderLogo>
+          <NavList>
+            <LinkStyled to="/">Home</LinkStyled>
+            <LinkStyled to="/nannies">Nannies</LinkStyled>
+            <LinkStyled to="/favorites">Favorites</LinkStyled>
+          </NavList>
+        </HeaderStyled>
       </div>
-    </header>
+    </HeaderNav>
   );
 };
