@@ -1,9 +1,14 @@
 import {
+  CheckBlock,
+  CheckInfo,
+  CheckText,
   HomeBtn,
   HomeText,
   HomeTitle,
+  IconCheck,
   IconHome,
   SectionHome,
+  StatBlock,
   WrappHome,
   WrappTitle,
 } from './HomeComponent.styled';
@@ -24,6 +29,17 @@ export const HomeComponent = () => {
               </IconHome>
             </HomeBtn>
           </WrappTitle>
+          <StatBlock>
+            <CheckBlock>
+              <IconCheck>
+                <use href={`${sprite}#fe-check`} />
+              </IconCheck>
+            </CheckBlock>
+            <div>
+              <CheckText>Experienced nannies</CheckText>
+              <CheckInfo>15,000</CheckInfo>
+            </div>
+          </StatBlock>
         </SectionHome>
       </WrappHome>
     </div>

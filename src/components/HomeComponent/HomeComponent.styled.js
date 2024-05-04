@@ -15,6 +15,7 @@ export const SectionHome = styled.section`
     (min-resolution: 2dppx) {
     background-image: url(${image2x});
   }
+  position: relative;
 `;
 
 export const WrappHome = styled.div`
@@ -64,4 +65,43 @@ export const HomeBtn = styled(Link)`
 export const IconHome = styled.svg`
   width: 15px;
   height: 17px;
+`;
+
+export const StatBlock = styled.div`
+  border-radius: 20px;
+  width: 284px;
+  height: 118px;
+  background-color: ${(p) => p.theme.color.white};
+  padding: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+`;
+
+export const CheckBlock = styled.div`
+  border-radius: 13px;
+  width: 54px;
+  height: 54px;
+  background-color: ${(p) => p.theme.color.main};
+  padding: 12px;
+`;
+
+export const IconCheck = styled.svg`
+  width: 30px;
+  height: 30px;
+`;
+
+export const CheckText = styled.p`
+  font-weight: 400;
+  font-size: 16px;
+  color: ${(p) => p.theme.color.secondary};
+`;
+
+export const CheckInfo = styled.p`
+  font-weight: 700;
+  font-size: 24px;
+  color: ${(p) => p.theme.color.text};
 `;
