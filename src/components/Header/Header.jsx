@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   HeaderLogo,
   HeaderNav,
@@ -5,8 +6,11 @@ import {
   LinkStyled,
   NavList,
 } from './Header.styled';
+import { UserMenu } from '../UserMenu/UserMenu';
+import { AuthNav } from '../AuthNav/AuthNav';
 
 export const Header = () => {
+  const [isLogedIn, setIsLogedIn] = useState(false);
   return (
     <HeaderNav>
       <div className="container">
@@ -15,8 +19,10 @@ export const Header = () => {
           <NavList>
             <LinkStyled to="/">Home</LinkStyled>
             <LinkStyled to="/nannies">Nannies</LinkStyled>
-            <LinkStyled to="/favorites">Favorites</LinkStyled>
+            {isLogedIn && <LinkStyled to="/favorites">Favorites</LinkStyled>}
           </NavList>
+
+          {isLogedIn ? <UserMenu /> : <AuthNav />}
         </HeaderStyled>
       </div>
     </HeaderNav>
