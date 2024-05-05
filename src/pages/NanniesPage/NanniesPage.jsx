@@ -1,5 +1,7 @@
+import { NanniesList } from '../../components/NanniesList/NanniesList';
+
 const NanniesPage = () => {
-  return <div>NanniesPage</div>;
+  return <NanniesList />;
 };
 
 export default NanniesPage;

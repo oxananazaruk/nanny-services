@@ -12,7 +12,7 @@ export const HeaderStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 52px 96px 20px 96px;
+  padding: 20px 96px;
   border-bottom: ${(p) => p.theme.border.button};
 `;
 

@@ -4,7 +4,7 @@ import image2x from '../../img/baby2x.jpg';
 import { Link } from 'react-router-dom';
 
 export const HomeWrapper = styled.div`
-  padding: 32px 0;
+  /* padding: 32px 0; */
 `;
 
 export const SectionHome = styled.section`
