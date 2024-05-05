@@ -30,6 +30,7 @@ export const Filter = styled.p`
 export const FilterWrap = styled.div`
   position: relative;
   width: 226px;
+  margin-bottom: 32px;
 `;
 
 export const FilterSelect = styled.div`
@@ -41,6 +42,7 @@ export const FilterSelect = styled.div`
   font-size: 18px;
   line-height: 1.11;
   color: ${(p) => p.theme.color.white};
+  cursor: pointer;
 `;
 
 export const FilterTitle = styled.div`
