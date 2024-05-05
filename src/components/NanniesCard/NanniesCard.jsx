@@ -3,7 +3,6 @@ import sprite from '../../img/sprite.svg';
 import {
   AboutBtn,
   AboutText,
-  AppointmentBtn,
   BtnWrapp,
   DetailsItem,
   DetailsList,
@@ -23,16 +22,10 @@ import {
   NannyName,
   NannyText,
   PriceStyled,
-  ReviewerLetter,
-  ReviewerName,
-  ReviewerRating,
-  ReviewerRound,
-  ReviewerWrapp,
-  ReviewsBlock,
-  ReviewsList,
   RoundGreen,
   RoundWhite,
 } from './NanniesCard.styled';
+import { ReviewsComp } from '../ReviewsComp/ReviewsComp';
 
 export const NanniesCard = ({ nanny }) => {
   const {
@@ -143,34 +136,7 @@ export const NanniesCard = ({ nanny }) => {
           </AboutBtn>
         )}
 
-        {isReadMore && (
-          <ReviewsBlock>
-            <ReviewsList>
-              {reviews.map((review) => (
-                <li key={review.reviewer}>
-                  <ReviewerWrapp>
-                    <ReviewerRound>
-                      <ReviewerLetter>
-                        {review.reviewer.charAt(0)}
-                      </ReviewerLetter>
-                    </ReviewerRound>
-                    <div>
-                      <ReviewerName>{review.reviewer}</ReviewerName>
-                      <ReviewerRating>
-                        <IconSvg>
-                          <use href={`${sprite}#star`} />
-                        </IconSvg>
-                        <span>{review.rating.toFixed(1)}</span>
-                      </ReviewerRating>
-                    </div>
-                  </ReviewerWrapp>
-                  <p>{review.comment}</p>
-                </li>
-              ))}
-            </ReviewsList>
-            <AppointmentBtn type="button">Make an appointment</AppointmentBtn>
-          </ReviewsBlock>
-        )}
+        {isReadMore && <ReviewsComp reviews={reviews} />}
       </MainWrapp>
     </NannyCard>
   );
