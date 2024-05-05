@@ -1,15 +1,54 @@
 import {
   Filter,
   FilterIcon,
+  FilterOption,
   FilterSelect,
+  FilterTitle,
   FilterWrap,
   HeaderBlock,
+  OptionsContainer,
   WrappList,
   WrappNannies,
 } from './NanniesList.styled';
 import sprite from '../../img/sprite.svg';
+import { useEffect, useRef, useState } from 'react';
 
 export const NanniesList = () => {
+  const filterOptions = [
+    'A to Z',
+    'Z to A',
+    'Less than 10$',
+    'Greater than 10$',
+    'Popular',
+    'Not popular',
+    'Show all',
+  ];
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState('A to Z');
+  const filterRef = useRef(null);
+
+  const handleDropdownFilter = () => {
+    setIsOpenFilter(!isOpenFilter);
+  };
+
+  const handleSelectFilter = (option) => {
+    setSelectedFilter(option);
+    setIsOpenFilter(false);
+  };
+
+  const handleClickOutside = (event) => {
+    if (filterRef.current && !filterRef.current.contains(event.target)) {
+      handleDropdownFilter();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  });
+
   return (
     <>
       <HeaderBlock />
@@ -21,16 +60,24 @@ export const NanniesList = () => {
               <FilterIcon>
                 <use href={`${sprite}#down`} />
               </FilterIcon>
-              <FilterSelect name="filters">
-                <option value="AtoZ" selected>
-                  A to Z
-                </option>
-                <option value="ZtoA">Z to A</option>
-                <option value="LessThan10$">Less than 10$</option>
-                <option value="GreaterThan10$">Greater than 10$</option>
-                <option value="Popular">Popular</option>
-                <option value="NotPopular">Not popular</option>
-                <option value="ShowAll">Show all</option>
+
+              <FilterSelect>
+                <FilterTitle onClick={handleDropdownFilter}>
+                  {selectedFilter || 'A to Z'}
+                </FilterTitle>
+                {isOpenFilter && (
+                  <OptionsContainer ref={filterRef}>
+                    {filterOptions.map((option, index) => (
+                      <FilterOption
+                        key={index}
+                        onClick={() => handleSelectFilter(option)}
+                        $isSelected={selectedFilter === option}
+                      >
+                        {option}
+                      </FilterOption>
+                    ))}
+                  </OptionsContainer>
+                )}
               </FilterSelect>
             </FilterWrap>
           </WrappList>
