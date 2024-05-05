@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import sprite from '../../img/sprite.svg';
 import {
   BtnWrapp,
@@ -12,8 +13,11 @@ import {
   InfoWrapp,
   MainWrapp,
   NannyCard,
+  NannyName,
   NannyText,
   PriceStyled,
+  RoundGreen,
+  RoundWhite,
 } from './NanniesCard.styled';
 
 export const NanniesCard = ({ nanny }) => {
@@ -36,10 +40,25 @@ export const NanniesCard = ({ nanny }) => {
     (new Date() - new Date(birthday)) / (1000 * 60 * 60 * 24 * 365.25)
   );
 
+  const [isFavorite, setIsFavorite] = useState(false);
+  const iconHeart = isFavorite ? 'heart-hover' : 'heart';
+
+  const handleSelectFavorite = () => {
+    setIsFavorite(!isFavorite);
+    // if (!isFavorite) {
+    //   dispatch(addFavorites(item));
+    // } else {
+    //   dispatch(removeFavorites(item._id));
+    // }
+  };
+
   return (
     <NannyCard>
       <ImgWrapp>
         <ImgStyled src={avatar_url} alt={name} />
+        <RoundWhite>
+          <RoundGreen></RoundGreen>
+        </RoundWhite>
       </ImgWrapp>
 
       <MainWrapp>
@@ -64,15 +83,15 @@ export const NanniesCard = ({ nanny }) => {
               </InfoItemLast>
             </InfoList>
 
-            <HeartBtn type="button">
+            <HeartBtn type="button" onClick={handleSelectFavorite}>
               <HeartSvg>
-                <use href={`${sprite}#heart`} />
+                <use href={`${sprite}#${iconHeart}`} />
               </HeartSvg>
             </HeartBtn>
           </BtnWrapp>
         </InfoWrapp>
 
-        <h2>{name}</h2>
+        <NannyName>{name}</NannyName>
 
         <ul>
           <li>

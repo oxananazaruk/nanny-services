@@ -15,12 +15,31 @@ export const ImgWrapp = styled.div`
   width: 120px;
   height: 120px;
   padding: 12px;
+  position: relative;
 `;
 
 export const ImgStyled = styled.img`
   border-radius: 15px;
   width: 96px;
   height: 96px;
+`;
+
+export const RoundWhite = styled.div`
+  border-radius: 50%;
+  background-color: ${(p) => p.theme.color.white};
+  width: 14px;
+  height: 14px;
+  padding: 2px;
+  position: absolute;
+  top: 9px;
+  right: 14px;
+`;
+
+export const RoundGreen = styled.div`
+  border-radius: 50%;
+  background-color: #38cd3e;
+  width: 10px;
+  height: 10px;
 `;
 
 export const MainWrapp = styled.div`
@@ -38,6 +57,7 @@ export const InfoWrapp = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 8px;
 `;
 
 export const BtnWrapp = styled.div`
@@ -90,4 +110,12 @@ export const HeartBtn = styled.button`
 export const HeartSvg = styled.svg`
   width: 26px;
   height: 26px;
+`;
+
+export const NannyName = styled.h2`
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  color: ${(p) => p.theme.color.text};
+  margin-bottom: 24px;
 `;
