@@ -12,6 +12,8 @@ import {
 } from './NanniesList.styled';
 import sprite from '../../img/sprite.svg';
 import { useEffect, useRef, useState } from 'react';
+import nannies from '../../babysitters.json';
+import { NanniesCard } from '../NanniesCard/NanniesCard';
 
 export const NanniesList = () => {
   const filterOptions = [
@@ -80,6 +82,14 @@ export const NanniesList = () => {
                 )}
               </FilterSelect>
             </FilterWrap>
+
+            <ul>
+              {nannies.map((item) => (
+                <li key={item.name}>
+                  <NanniesCard nanny={item} />
+                </li>
+              ))}
+            </ul>
           </WrappList>
         </div>
       </WrappNannies>
