@@ -1,4 +1,20 @@
 import sprite from '../../img/sprite.svg';
+import {
+  BtnWrapp,
+  HeartBtn,
+  HeartSvg,
+  IconSvg,
+  ImgStyled,
+  ImgWrapp,
+  InfoItem,
+  InfoItemLast,
+  InfoList,
+  InfoWrapp,
+  MainWrapp,
+  NannyCard,
+  NannyText,
+  PriceStyled,
+} from './NanniesCard.styled';
 
 export const NanniesCard = ({ nanny }) => {
   const {
@@ -21,54 +37,70 @@ export const NanniesCard = ({ nanny }) => {
   );
 
   return (
-    <div>
-      <div>
-        <img src={avatar_url} alt={name} />
-      </div>
+    <NannyCard>
+      <ImgWrapp>
+        <ImgStyled src={avatar_url} alt={name} />
+      </ImgWrapp>
 
-      <div>
-        <p>Nanny</p>
+      <MainWrapp>
+        <InfoWrapp>
+          <NannyText>Nanny</NannyText>
+          <BtnWrapp>
+            <InfoList>
+              <InfoItem>
+                <IconSvg>
+                  <use href={`${sprite}#map-pin`} />
+                </IconSvg>
+                <p>{location}</p>
+              </InfoItem>
+              <InfoItem>
+                <IconSvg>
+                  <use href={`${sprite}#star`} />
+                </IconSvg>
+                <p>Rating: {rating}</p>
+              </InfoItem>
+              <InfoItemLast>
+                Price / 1 hour: <PriceStyled>{price_per_hour}$</PriceStyled>
+              </InfoItemLast>
+            </InfoList>
+
+            <HeartBtn type="button">
+              <HeartSvg>
+                <use href={`${sprite}#heart`} />
+              </HeartSvg>
+            </HeartBtn>
+          </BtnWrapp>
+        </InfoWrapp>
+
+        <h2>{name}</h2>
+
         <ul>
-          <li>{location}</li>
-          <li>Rating: {rating}</li>
-          <li>Price / 1 hour: {price_per_hour}$</li>
+          <li>
+            Age: <p>{age}</p>
+          </li>
+          <li>
+            Experience: <p>{experience}</p>
+          </li>
+          <li>
+            Kids Age: <p>{kids_age}</p>
+          </li>
+          <li>
+            Characters:{' '}
+            <p>
+              {characters
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(', ')}
+            </p>
+          </li>
+          <li>
+            Education: <p>{education}</p>
+          </li>
         </ul>
 
-        <btn type="button">
-          <svg>
-            <use href={`${sprite}#heart`} />
-          </svg>
-        </btn>
-      </div>
+        <p>{about}</p>
 
-      <h2>{name}</h2>
-
-      <ul>
-        <li>
-          Age: <p>{age}</p>
-        </li>
-        <li>
-          Experience: <p>{experience}</p>
-        </li>
-        <li>
-          Kids Age: <p>{kids_age}</p>
-        </li>
-        <li>
-          Characters:{' '}
-          <p>
-            {characters
-              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(', ')}
-          </p>
-        </li>
-        <li>
-          Education: <p>{education}</p>
-        </li>
-      </ul>
-
-      <p>{about}</p>
-
-      <button type="button">Read more</button>
-    </div>
+        <button type="button">Read more</button>
+      </MainWrapp>
+    </NannyCard>
   );
 };

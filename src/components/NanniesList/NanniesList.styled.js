@@ -10,7 +10,7 @@ export const HeaderBlock = styled.div`
 `;
 
 export const WrappNannies = styled.div`
-  height: 500px;
+  /* height: 500px; */
   background-color: ${(p) => p.theme.color.block};
 `;
 
@@ -84,4 +84,10 @@ export const FilterOption = styled.li`
   line-height: 1.11;
   color: ${getFilterColor};
   cursor: pointer;
+`;
+
+export const NannyList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 `;

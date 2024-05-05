@@ -6,6 +6,7 @@ import {
   FilterTitle,
   FilterWrap,
   HeaderBlock,
+  NannyList,
   OptionsContainer,
   WrappList,
   WrappNannies,
@@ -83,13 +84,13 @@ export const NanniesList = () => {
               </FilterSelect>
             </FilterWrap>
 
-            <ul>
+            <NannyList>
               {nannies.map((item) => (
                 <li key={item.name}>
                   <NanniesCard nanny={item} />
                 </li>
               ))}
-            </ul>
+            </NannyList>
           </WrappList>
         </div>
       </WrappNannies>
