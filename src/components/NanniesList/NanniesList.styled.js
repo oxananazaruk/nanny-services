@@ -12,6 +12,7 @@ export const HeaderBlock = styled.div`
 export const WrappNannies = styled.div`
   /* height: 500px; */
   background-color: ${(p) => p.theme.color.block};
+  padding-bottom: 30px;
 `;
 
 export const WrappList = styled.div`

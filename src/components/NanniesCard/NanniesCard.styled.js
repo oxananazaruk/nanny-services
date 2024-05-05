@@ -43,7 +43,7 @@ export const RoundGreen = styled.div`
 `;
 
 export const MainWrapp = styled.div`
-  max-width: 990px;
+  width: 990px;
 `;
 
 export const NannyText = styled.p`
@@ -118,4 +118,52 @@ export const NannyName = styled.h2`
   line-height: 1;
   color: ${(p) => p.theme.color.text};
   margin-bottom: 24px;
+`;
+
+export const DetailsList = styled.ul`
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+`;
+
+export const DetailsItem = styled.li`
+  display: flex;
+  gap: 4px;
+  border-radius: 24px;
+  padding: 8px 16px;
+  background-color: ${(p) => p.theme.color.block};
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: ${(p) => p.theme.color.grey};
+`;
+
+export const ItemText = styled.p`
+  color: ${(p) => p.theme.color.text};
+`;
+
+export const ItemTextAge = styled.p`
+  color: ${(p) => p.theme.color.text};
+  text-decoration: underline;
+`;
+
+export const AboutText = styled.p`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: ${(p) => p.theme.color.secondary};
+  margin-bottom: 14px;
+`;
+
+export const AboutBtn = styled.button`
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: ${(p) => p.theme.color.text};
+  border: none;
+  background-color: transparent;
 `;

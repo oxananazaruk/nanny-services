@@ -7,6 +7,7 @@ export const theme = {
     block: '#f3f3f3',
     price: '#38cd3e',
     hover: 'rgba(16, 57, 49, 0.2)',
+    grey: '#8a8a89',
   },
   border: {
     red: ' 2px solid rgba(240, 63, 59, 0.2)',

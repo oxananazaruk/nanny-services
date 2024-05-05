@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import sprite from '../../img/sprite.svg';
 import {
+  AboutBtn,
+  AboutText,
   BtnWrapp,
+  DetailsItem,
+  DetailsList,
   HeartBtn,
   HeartSvg,
   IconSvg,
@@ -11,6 +15,8 @@ import {
   InfoItemLast,
   InfoList,
   InfoWrapp,
+  ItemText,
+  ItemTextAge,
   MainWrapp,
   NannyCard,
   NannyName,
@@ -42,6 +48,7 @@ export const NanniesCard = ({ nanny }) => {
 
   const [isFavorite, setIsFavorite] = useState(false);
   const iconHeart = isFavorite ? 'heart-hover' : 'heart';
+  const [isReadMore, setIsReadMore] = useState(false);
 
   const handleSelectFavorite = () => {
     setIsFavorite(!isFavorite);
@@ -50,6 +57,10 @@ export const NanniesCard = ({ nanny }) => {
     // } else {
     //   dispatch(removeFavorites(item._id));
     // }
+  };
+
+  const handleReadMore = () => {
+    setIsReadMore(true);
   };
 
   return (
@@ -93,32 +104,54 @@ export const NanniesCard = ({ nanny }) => {
 
         <NannyName>{name}</NannyName>
 
-        <ul>
-          <li>
-            Age: <p>{age}</p>
-          </li>
-          <li>
-            Experience: <p>{experience}</p>
-          </li>
-          <li>
-            Kids Age: <p>{kids_age}</p>
-          </li>
-          <li>
+        <DetailsList>
+          <DetailsItem>
+            Age: <ItemTextAge>{age}</ItemTextAge>
+          </DetailsItem>
+          <DetailsItem>
+            Experience: <ItemText>{experience}</ItemText>
+          </DetailsItem>
+          <DetailsItem>
+            Kids Age: <ItemText>{kids_age}</ItemText>
+          </DetailsItem>
+          <DetailsItem>
             Characters:{' '}
-            <p>
+            <ItemText>
               {characters
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(', ')}
-            </p>
-          </li>
-          <li>
-            Education: <p>{education}</p>
-          </li>
-        </ul>
+            </ItemText>
+          </DetailsItem>
+          <DetailsItem>
+            Education: <ItemText>{education}</ItemText>
+          </DetailsItem>
+        </DetailsList>
 
-        <p>{about}</p>
+        <AboutText>{about}</AboutText>
 
-        <button type="button">Read more</button>
+        {!isReadMore && (
+          <AboutBtn type="button" onClick={handleReadMore}>
+            Read more
+          </AboutBtn>
+        )}
+
+        {isReadMore && (
+          <>
+            <ul>
+              {reviews.map((review) => (
+                <li key={review.reviewer}>
+                  <div>
+                    <p>{review.reviewer.charAt(0)}</p>
+                  </div>
+                  <h3>{review.reviewer}</h3>
+                  <p>{review.rating}</p>
+                  <p>{review.comment}</p>
+                </li>
+              ))}
+            </ul>
+            <button type="button">Make an appointment</button>
+          </>
+        )}
       </MainWrapp>
     </NannyCard>
   );
