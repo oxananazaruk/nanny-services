@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { BtnList, LogBtn, RegBtn } from './AuthNav.styled';
 import { ModalWindow } from '../ModalWindow/ModalWindow';
+import LogInForm from '../UserForms/LogInForm';
+import RegistrationForm from '../UserForms/RegistrationForm';
 
 export const AuthNav = () => {
   const [isModalLog, setIsModalLog] = useState(false);
@@ -22,16 +24,14 @@ export const AuthNav = () => {
       </BtnList>
 
       {isModalLog && (
-        <ModalWindow
-          isOpen={isModalLog}
-          onClose={() => setIsModalLog(false)}
-        ></ModalWindow>
+        <ModalWindow isOpen={isModalLog} onClose={() => setIsModalLog(false)}>
+          <LogInForm />
+        </ModalWindow>
       )}
       {isModalReg && (
-        <ModalWindow
-          isOpen={isModalReg}
-          onClose={() => setIsModalReg(false)}
-        ></ModalWindow>
+        <ModalWindow isOpen={isModalReg} onClose={() => setIsModalReg(false)}>
+          <RegistrationForm />
+        </ModalWindow>
       )}
     </>
   );

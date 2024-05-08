@@ -1,5 +1,6 @@
 import ReactModal from 'react-modal';
 import sprite from '../../img/sprite.svg';
+import { ModalCloseBtn, ModalSvg, ModalWrapp } from './ModalWindow.styled';
 
 const customStyles = {
   overlay: {
@@ -13,10 +14,10 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    padding: '40px 40px 40px 40px',
+    padding: '0px',
     borderRadius: '20px',
-    minWidth: '982px',
-    maxHeight: '850px',
+    maxWidth: '565px',
+    minHeight: '489px',
   },
 };
 
@@ -30,14 +31,14 @@ export const ModalWindow = ({ isOpen, onClose, children }) => {
       style={customStyles}
       autoFocus={true}
     >
-      <div>
-        <button onClick={onClose}>
-          <svg>
+      <ModalWrapp>
+        <ModalCloseBtn onClick={onClose}>
+          <ModalSvg>
             <use href={`${sprite}#x`} />
-          </svg>
-        </button>
+          </ModalSvg>
+        </ModalCloseBtn>
         {children}
-      </div>
+      </ModalWrapp>
     </ReactModal>
   );
 };

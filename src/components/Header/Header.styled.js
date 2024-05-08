@@ -35,4 +35,17 @@ export const LinkStyled = styled(NavLink)`
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: ${(p) => p.theme.color.white};
+  position: relative;
+
+  &.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: ${(p) => p.theme.color.white};
+    border-radius: 50%;
+  }
 `;

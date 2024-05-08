@@ -15,6 +15,9 @@ export const LogBtn = styled.button`
   border-radius: 30px;
   padding: 14px 39px;
   background-color: transparent;
+  &:hover,
+  &:focus {
+    background-color: ${(p) => p.theme.color.main};
 `;
 
 export const RegBtn = styled.button`
@@ -27,4 +30,8 @@ export const RegBtn = styled.button`
   padding: 14px 40px;
   background-color: ${(p) => p.theme.color.main};
   border: none;
+  &:hover,
+  &:focus {
+    background-color: ${(p) => p.theme.color.white};
+    color: ${(p) => p.theme.color.main};
 `;
