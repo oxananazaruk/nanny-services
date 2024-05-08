@@ -16,7 +16,7 @@ export const WrappNannies = styled.div`
 `;
 
 export const WrappList = styled.div`
-  padding-left: 46px;
+  padding-left: 91px;
   padding-top: 64px;
 `;
 

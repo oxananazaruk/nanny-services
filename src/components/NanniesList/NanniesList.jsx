@@ -85,9 +85,9 @@ export const NanniesList = () => {
             </FilterWrap>
 
             <NannyList>
-              {nannies.map((item) => (
-                <li key={item.name}>
-                  <NanniesCard nanny={item} />
+              {nannies.map((nanny) => (
+                <li key={nanny.name}>
+                  <NanniesCard nanny={nanny} />
                 </li>
               ))}
             </NannyList>

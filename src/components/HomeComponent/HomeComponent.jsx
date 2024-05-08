@@ -15,7 +15,9 @@ import {
 } from './HomeComponent.styled';
 import sprite from '../../img/sprite.svg';
 
+
 export const HomeComponent = () => {
+
   return (
     <div className="container">
       <HomeWrapper>
