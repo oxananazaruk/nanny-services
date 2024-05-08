@@ -17,7 +17,7 @@ export const LogBtn = styled.button`
   background-color: transparent;
   &:hover,
   &:focus {
-    background-color: ${(p) => p.theme.color.main};
+    background-color: ${(p) => p.theme.color.main};}
 `;
 
 export const RegBtn = styled.button`
@@ -33,5 +33,5 @@ export const RegBtn = styled.button`
   &:hover,
   &:focus {
     background-color: ${(p) => p.theme.color.white};
-    color: ${(p) => p.theme.color.main};
+    color: ${(p) => p.theme.color.main};}
 `;

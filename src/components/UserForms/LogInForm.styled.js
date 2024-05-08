@@ -68,6 +68,7 @@ export const FormBtn = styled.button`
   padding: 16px;
   width: 100%;
   background-color: ${(p) => p.theme.color.main};
+  border: 1px solid transparent;
   &:hover,
   &:focus {
     background-color: ${(p) => p.theme.color.white};

@@ -66,7 +66,8 @@ export const HomeBtn = styled(Link)`
   margin-top: 64px;
   &:hover,
   &:focus {
-  border: ${(p) => p.theme.border.red};
+    border: ${(p) => p.theme.border.red};
+  }
 `;
 
 export const IconHome = styled.svg`
