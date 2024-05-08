@@ -1,5 +1,4 @@
 import {
-  AppointmentBtn,
   IconSvg,
   ReviewerLetter,
   ReviewerName,
@@ -35,7 +34,6 @@ export const ReviewsComp = ({ reviews }) => {
           </li>
         ))}
       </ReviewsList>
-      <AppointmentBtn type="button">Make an appointment</AppointmentBtn>
     </ReviewsBlock>
   );
 };

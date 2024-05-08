@@ -55,18 +55,6 @@ export const ReviewerRating = styled.p`
   align-items: center;
 `;
 
-export const AppointmentBtn = styled.button`
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  color: ${(p) => p.theme.color.white};
-  padding: 14px 28px;
-  border-radius: 30px;
-  background-color: ${(p) => p.theme.color.main};
-  border: none;
-`;
-
 export const IconSvg = styled.svg`
   width: 16px;
   height: 16px;

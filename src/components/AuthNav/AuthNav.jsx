@@ -28,6 +28,7 @@ export const AuthNav = () => {
           <LogInForm />
         </ModalWindow>
       )}
+
       {isModalReg && (
         <ModalWindow isOpen={isModalReg} onClose={() => setIsModalReg(false)}>
           <RegistrationForm />
