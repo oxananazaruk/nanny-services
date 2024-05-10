@@ -3,6 +3,28 @@ import styled from 'styled-components';
 export const ModalWrapp = styled.div`
   position: relative;
   padding: 64px;
+  max-height: 579px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  @-moz-document url-prefix() {
+    scrollbar {
+      width: thin;
+      color: #d9d9d9;
+      background-color: transparent;
+    }
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 7px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #d9d9d9;
+    border-radius: 12px;
+    height: 264px;
+  }
 `;
 
 export const ModalCloseBtn = styled.button`

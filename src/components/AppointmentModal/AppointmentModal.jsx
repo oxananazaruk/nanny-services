@@ -2,12 +2,17 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {
+  AppointImg,
   AppointText,
   AppointTile,
   FormBtn,
   FormContainer,
   FormError,
   FormInput,
+  FormList,
+  ImgName,
+  ImgText,
+  ImgWrapp,
   InputWrapp,
 } from './AppointmentModal.styled';
 const phoneRegExp = /^\+[0-9]{1,3}-[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
@@ -20,7 +25,7 @@ const appointmentSchema = yup
       .string()
       .matches(phoneRegExp, 'Invalid phone number')
       .required('Phone number is required'),
-    age: yup.number().min(0).required('Age is required'),
+    age: yup.string().required('Age is required'),
     time: yup
       .string()
       .matches(timeRegExp, 'Invalid time format')
@@ -53,47 +58,52 @@ export default function AppointmentForm({ name, avatar }) {
         we can match you with the perfect care partner.
       </AppointText>
 
-      <div>
-        <img src={avatar} alt={name} />
+      <ImgWrapp>
+        <AppointImg src={avatar} alt={name} />
         <div>
-          <p>Your nanny</p>
-          <h3>{name}</h3>
+          <ImgText>Your nanny</ImgText>
+          <ImgName>{name}</ImgName>
         </div>
-      </div>
+      </ImgWrapp>
 
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
-        <InputWrapp>
-          <FormInput {...register('address')} placeholder="Address" />
-          <FormError>{errors.address?.message}</FormError>
-        </InputWrapp>
+        <FormList>
+          <InputWrapp>
+            <FormInput {...register('address')} placeholder="Address" />
+            <FormError>{errors.address?.message}</FormError>
+          </InputWrapp>
+
+          <InputWrapp>
+            <FormInput {...register('phone')} placeholder="+380" type="tel" />
+            <FormError>{errors.phone?.message}</FormError>
+          </InputWrapp>
+
+          <InputWrapp>
+            <FormInput {...register('age')} placeholder="Child's age" />
+            <FormError>{errors.age?.message}</FormError>
+          </InputWrapp>
+
+          <InputWrapp>
+            <FormInput {...register('time')} placeholder="00:00" type="time" />
+            <FormError>{errors.time?.message}</FormError>
+          </InputWrapp>
+        </FormList>
 
         <InputWrapp>
-          <FormInput {...register('phone')} placeholder="Phone" />
-          <FormError>{errors.phone?.message}</FormError>
-        </InputWrapp>
-
-        <InputWrapp>
-          <FormInput {...register('age')} placeholder="Child's age" />
-          <FormError>{errors.age?.message}</FormError>
-        </InputWrapp>
-
-        <InputWrapp>
-          <FormInput {...register('time')} placeholder="Time" />
-          <FormError>{errors.time?.message}</FormError>
-        </InputWrapp>
-
-        <InputWrapp>
-          <FormInput {...register('email')} placeholder="Email" />
+          <FormInput {...register('email')} placeholder="Email" type="email" />
           <FormError>{errors.email?.message}</FormError>
         </InputWrapp>
 
         <InputWrapp>
-          <FormInput {...register('name')} placeholder="Name" />
+          <FormInput
+            {...register('name')}
+            placeholder="Father's or mother's name"
+          />
           <FormError>{errors.name?.message}</FormError>
         </InputWrapp>
 
         <InputWrapp>
-          <FormInput {...register('comment')} placeholder="Comment" />
+          <textarea {...register('comment')} placeholder="Comment" />
           <FormError>{errors.comment?.message}</FormError>
         </InputWrapp>
 

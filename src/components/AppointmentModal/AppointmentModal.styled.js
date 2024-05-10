@@ -17,12 +17,45 @@ export const AppointText = styled.p`
   margin-bottom: 40px;
 `;
 
+export const ImgWrapp = styled.div`
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+`;
+
+export const AppointImg = styled.img`
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+`;
+
+export const ImgText = styled.p`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: ${(p) => p.theme.color.grey};
+  margin-bottom: 4px;
+`;
+
+export const ImgName = styled.h3`
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: ${(p) => p.theme.color.text};
+`;
+
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 18px;
-  width: 438px;
+  width: 472px;
   margin: 0 auto;
+`;
+
+export const FormList = styled.div`
+  display: flex;
+  gap: 16px 8px;
+  flex-wrap: wrap;
 `;
 
 export const FormInput = styled.input`
@@ -53,8 +86,8 @@ export const FormError = styled.p`
 `;
 
 export const InputWrapp = styled.div`
-  width: 100%;
   position: relative;
+  flex-basis: calc((100% - 8px) / 2);
 `;
 
 export const FormBtn = styled.button`
