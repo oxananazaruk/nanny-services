@@ -67,6 +67,26 @@ export const FormInput = styled.input`
   line-height: 1.25;
   width: 100%;
   color: ${(p) => p.theme.color.text};
+  background-color: ${(p) => p.theme.color.block};
+  &::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: ${(p) => p.theme.color.text};
+  }
+`;
+
+export const FormArea = styled.textarea`
+  border: ${(p) => p.theme.border.grey};
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  width: 100%;
+  color: ${(p) => p.theme.color.text};
+  background-color: ${(p) => p.theme.color.block};
+  resize: none;
   &::placeholder {
     font-weight: 400;
     font-size: 16px;

@@ -5,6 +5,7 @@ import {
   AppointImg,
   AppointText,
   AppointTile,
+  FormArea,
   FormBtn,
   FormContainer,
   FormError,
@@ -15,7 +16,7 @@ import {
   ImgWrapp,
   InputWrapp,
 } from './AppointmentModal.styled';
-const phoneRegExp = /^\+[0-9]{1,3}-[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+const phoneRegExp = /^\+[0-9]{1,3}[0-9]{3}[0-9]{3}[0-9]{4}$/;
 const timeRegExp = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
 const appointmentSchema = yup
@@ -103,7 +104,7 @@ export default function AppointmentForm({ name, avatar }) {
         </InputWrapp>
 
         <InputWrapp>
-          <textarea {...register('comment')} placeholder="Comment" />
+          <FormArea {...register('comment')} placeholder="Comment" rows={4} />
           <FormError>{errors.comment?.message}</FormError>
         </InputWrapp>
 

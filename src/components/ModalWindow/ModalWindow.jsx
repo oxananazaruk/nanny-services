@@ -18,6 +18,7 @@ const customStyles = {
     borderRadius: '20px',
     maxWidth: '600px',
     minHeight: '489px',
+    backgroundColor: ' #f3f3f3',
   },
 };
 

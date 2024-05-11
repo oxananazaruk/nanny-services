@@ -34,6 +34,7 @@ export const FormInput = styled.input`
   line-height: 1.25;
   width: 100%;
   color: ${(p) => p.theme.color.text};
+  background-color: ${(p) => p.theme.color.block};
   &::placeholder {
     font-weight: 400;
     font-size: 16px;
@@ -71,7 +72,7 @@ export const FormBtn = styled.button`
   border: 1px solid transparent;
   &:hover,
   &:focus {
-    background-color: ${(p) => p.theme.color.white};
+    background-color: ${(p) => p.theme.color.block};
     color: ${(p) => p.theme.color.main};
     border: 1px solid ${(p) => p.theme.color.main};
   }
