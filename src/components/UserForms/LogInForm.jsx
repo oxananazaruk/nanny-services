@@ -10,6 +10,8 @@ import {
   FormTile,
   InputWrapp,
 } from './LogInForm.styled';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../redux/auth/operations';
 
 const loginSchema = yup
   .object({
@@ -32,7 +34,11 @@ export default function LogInForm() {
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
-  const onSubmit = (data) => console.log(data);
+
+  const dispatch = useDispatch();
+
+  const onSubmit = ({ email, password }) =>
+    dispatch(loginUser({email, password}));
 
   return (
     <>

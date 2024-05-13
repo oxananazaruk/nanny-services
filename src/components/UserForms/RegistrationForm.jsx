@@ -41,8 +41,8 @@ export default function RegistrationForm() {
 
   const dispatch = useDispatch();
 
-  const onSubmit = ({ email, password }) => {
-    dispatch(registerUser(email, password));
+  const onSubmit = ({ email, password, name }) => {
+    dispatch(registerUser({ email, password, name }));
   };
 
   return (

@@ -5,6 +5,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isLoading: false,
   error: false,
 };
 
@@ -12,71 +13,47 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    registerRequest: (state) => {
-      state.loading = true;
+    registerPending: (state) => {
+      state.isLoading = true;
       state.error = null;
     },
-    registerSuccess: (state, action) => {
-      state.loading = false;
-      state.user = action.payload.user;
+    registerFulfilled: (state, action) => {
+      state.isLoggedIn = true;
+      state.isLoading = false;
+      state.user = { email: action.payload.email, name: action.payload.name };
       state.token = action.payload.token;
     },
-    registerFailure: (state, action) => {
-      state.loading = false;
+    registerRejected: (state, action) => {
+      state.isLoggedIn = false;
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    loginPending: (state) => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    loginFulfilled: (state, action) => {
+      console.log('action.payload', action.payload);
+      state.isLoggedIn = true;
+      state.isLoading = false;
+      state.user = { email: action.payload.email, name: action.payload.name };
+      state.token = action.payload.token;
+    },
+    loginRejected: (state, action) => {
+      state.isLoggedIn = false;
+      state.isLoading = false;
       state.error = action.payload;
     },
   },
 });
 
-export const { registerRequest, registerSuccess, registerFailure } =
-  authSlice.actions;
-
-// const authSlice = createSlice({
-//   name: 'auth',
-//   initialState,
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(register.fulfilled, (state, action) => {
-//         state.user = action.payload.user;
-//         state.token = action.payload.token;
-//         state.isLoggedIn = true;
-//         state.error = false;
-//       })
-//       .addCase(register.rejected, (state) => {
-//         state.user = { name: null, email: null };
-//         state.token = null;
-//         state.isLoggedIn = false;
-//         state.error = true;
-//       })
-//       .addCase(logIn.fulfilled, (state, action) => {
-//         state.user = action.payload.user;
-//         state.token = action.payload.token;
-//         state.isLoggedIn = true;
-//         state.error = false;
-//       })
-//       .addCase(logIn.rejected, (state) => {
-//         state.user = { name: null, email: null };
-//         state.token = null;
-//         state.isLoggedIn = false;
-//         state.error = true;
-//       })
-//       .addCase(logOut.fulfilled, (state) => {
-//         state.user = { name: null, email: null };
-//         state.token = null;
-//         state.isLoggedIn = false;
-//       })
-//       .addCase(refreshUser.pending, (state) => {
-//         state.isRefreshing = true;
-//       })
-//       .addCase(refreshUser.fulfilled, (state, action) => {
-//         state.user = action.payload;
-//         state.isLoggedIn = true;
-//         state.isRefreshing = false;
-//       })
-//       .addCase(refreshUser.rejected, (state) => {
-//         state.isRefreshing = false;
-//       });
-//   },
-// });
+export const {
+  registerPending,
+  registerFulfilled,
+  registerRejected,
+  loginPending,
+  loginFulfilled,
+  loginRejected,
+} = authSlice.actions;
 
 export const authReducer = authSlice.reducer;
