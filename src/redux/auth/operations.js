@@ -1,25 +1,27 @@
 import { app } from '../../firebase';
-import {
-  registerPending,
-  registerFulfilled,
-  registerRejected,
-  loginPending,
-  loginFulfilled,
-  loginRejected,
-} from './slice';
+// import {
+//   registerPending,
+//   registerFulfilled,
+//   registerRejected,
+//   loginPending,
+//   loginFulfilled,
+//   loginRejected,
+// } from './slice';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  signOut,
 } from 'firebase/auth';
 
 const auth = getAuth(app);
 
-export const registerUser =
-  ({ email, password, name }) =>
-  async (dispatch) => {
-    dispatch(registerPending());
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
+export const registerUser = createAsyncThunk(
+  'auth/registerUser',
+  async ({ email, password, name }, { rejectWithValue }) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -27,25 +29,22 @@ export const registerUser =
         password
       );
       const { user } = userCredential;
-
+      // __________________________________
       console.log(' user', user);
-
-      // user.displayName = name;
-      await updateProfile({
+      await updateProfile(auth.currentUser, {
         displayName: name,
       });
-
       const token = await user.getIdToken();
-      dispatch(registerFulfilled({ email: user.email, name, token }));
+      return { email: user.email, name, token };
     } catch (error) {
-      dispatch(registerRejected(error.message));
+      return rejectWithValue(error);
     }
-  };
+  }
+);
 
-export const loginUser =
-  ({ email, password }) =>
-  async (dispatch) => {
-    dispatch(loginPending());
+export const loginUser = createAsyncThunk(
+  'auth/loginUser',
+  async ({ email, password }, { rejectWithValue }) => {
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -54,12 +53,25 @@ export const loginUser =
       );
 
       const { user } = userCredential;
-
+      // --------------------------------
       console.log(' userLogin', user);
       const token = await user.getIdToken();
       const name = user.displayName;
-      dispatch(loginFulfilled({ email: user.email, token, name }));
+      return { email: user.email, name, token };
     } catch (error) {
-      dispatch(loginRejected(error.message));
+      return rejectWithValue(error);
     }
-  };
+  }
+);
+
+export const logoutUser = createAsyncThunk(
+  'auth/logoutUser',
+  async (_, { rejectWithValue }) => {
+    try {
+      await signOut(auth);
+      return;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

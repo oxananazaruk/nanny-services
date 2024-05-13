@@ -38,7 +38,7 @@ export default function LogInForm() {
   const dispatch = useDispatch();
 
   const onSubmit = ({ email, password }) =>
-    dispatch(loginUser({email, password}));
+    dispatch(loginUser({ email, password }));
 
   return (
     <>

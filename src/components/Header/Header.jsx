@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   HeaderLogo,
   HeaderNav,
@@ -8,9 +7,12 @@ import {
 } from './Header.styled';
 import { UserMenu } from '../UserMenu/UserMenu';
 import { AuthNav } from '../AuthNav/AuthNav';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
 export const Header = () => {
-  const [isLogedIn, setIsLogedIn] = useState(false);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   return (
     <HeaderNav>
       <div className="container">
@@ -19,10 +21,10 @@ export const Header = () => {
           <NavList>
             <LinkStyled to="/">Home</LinkStyled>
             <LinkStyled to="/nannies">Nannies</LinkStyled>
-            {isLogedIn && <LinkStyled to="/favorites">Favorites</LinkStyled>}
+            {isLoggedIn && <LinkStyled to="/favorites">Favorites</LinkStyled>}
           </NavList>
 
-          {isLogedIn ? <UserMenu /> : <AuthNav />}
+          {isLoggedIn ? <UserMenu /> : <AuthNav />}
         </HeaderStyled>
       </div>
     </HeaderNav>
