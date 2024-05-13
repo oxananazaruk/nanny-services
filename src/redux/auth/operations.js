@@ -1,18 +1,11 @@
 import { app } from '../../firebase';
-// import {
-//   registerPending,
-//   registerFulfilled,
-//   registerRejected,
-//   loginPending,
-//   loginFulfilled,
-//   loginRejected,
-// } from './slice';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
   signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 const auth = getAuth(app);
@@ -72,6 +65,34 @@ export const logoutUser = createAsyncThunk(
       return;
     } catch (error) {
       return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const refreshUser = createAsyncThunk(
+  'auth/refreshUser',
+  async (_, { rejectWithValue }) => {
+    try {
+      const user = auth.currentUser;
+      console.log(user);
+      if (user) {
+        const name = user.displayName;
+        const email = user.email;
+        return { email, name };
+        // await onAuthStateChanged(auth, (user) => {
+        //   if (user) {
+        //     console.log('user', user);
+        //     const name = user.displayName;
+        //     const email = user.email;
+        //     console.log('user name', name);
+        //     console.log('user email', email);
+
+        //     return { email: user.email, name: user.displayName };
+      }
+      return rejectWithValue('Unable to fetch user');
+      // });
+    } catch (error) {
+      return rejectWithValue(error);
     }
   }
 );

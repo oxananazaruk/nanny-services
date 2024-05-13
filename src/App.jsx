@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
+import { refreshUser } from './redux/auth/operations';
+import { useDispatch } from 'react-redux';
 // import { PrivateRoute } from './PrivateRoute';
 // import { RestrictedRoute } from './RestrictedRoute';
 
@@ -11,6 +13,12 @@ const FavoritesPage = lazy(() =>
 );
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
