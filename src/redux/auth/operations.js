@@ -73,26 +73,20 @@ export const refreshUser = createAsyncThunk(
   'auth/refreshUser',
   async (_, { rejectWithValue }) => {
     try {
-      const user = auth.currentUser;
-      console.log(user);
-      if (user) {
-        const name = user.displayName;
-        const email = user.email;
-        return { email, name };
-        // await onAuthStateChanged(auth, (user) => {
-        //   if (user) {
-        //     console.log('user', user);
-        //     const name = user.displayName;
-        //     const email = user.email;
-        //     console.log('user name', name);
-        //     console.log('user email', email);
-
-        //     return { email: user.email, name: user.displayName };
-      }
-      return rejectWithValue('Unable to fetch user');
-      // });
+      return new Promise((resolve, reject) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          if (user) {
+            const name = user.displayName;
+            const email = user.email;
+            resolve({ email, name });
+          } else {
+            reject('Unable to fetch user');
+          }
+          unsubscribe();
+        });
+      });
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
