@@ -6,6 +6,8 @@ import {
   FilterTitle,
   FilterWrap,
   HeaderBlock,
+  ListWrapper,
+  LoadMoreBtn,
   NannyList,
   OptionsContainer,
   WrappList,
@@ -13,10 +15,11 @@ import {
 } from './NanniesList.styled';
 import sprite from '../../img/sprite.svg';
 import { useEffect, useRef, useState } from 'react';
-import nannies from '../../babysitters.json';
 import { NanniesCard } from '../NanniesCard/NanniesCard';
+import { useSelector } from 'react-redux';
+import { selectMessage } from '../../redux/nannies/selectors';
 
-export const NanniesList = () => {
+export const NanniesList = ({ nannies, loadMore }) => {
   const filterOptions = [
     'A to Z',
     'Z to A',
@@ -29,6 +32,7 @@ export const NanniesList = () => {
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('A to Z');
   const filterRef = useRef(null);
+  const message = useSelector(selectMessage);
 
   const handleDropdownFilter = () => {
     setIsOpenFilter(!isOpenFilter);
@@ -57,41 +61,51 @@ export const NanniesList = () => {
       <HeaderBlock />
       <WrappNannies>
         <div className="container">
-          <WrappList>
-            <Filter>Filters</Filter>
-            <FilterWrap>
-              <FilterIcon>
-                <use href={`${sprite}#down`} />
-              </FilterIcon>
+          <ListWrapper>
+            <WrappList>
+              <Filter>Filters</Filter>
+              <FilterWrap>
+                <FilterIcon>
+                  <use href={`${sprite}#down`} />
+                </FilterIcon>
 
-              <FilterSelect>
-                <FilterTitle onClick={handleDropdownFilter}>
-                  {selectedFilter || 'A to Z'}
-                </FilterTitle>
-                {isOpenFilter && (
-                  <OptionsContainer ref={filterRef}>
-                    {filterOptions.map((option, index) => (
-                      <FilterOption
-                        key={index}
-                        onClick={() => handleSelectFilter(option)}
-                        $isSelected={selectedFilter === option}
-                      >
-                        {option}
-                      </FilterOption>
-                    ))}
-                  </OptionsContainer>
-                )}
-              </FilterSelect>
-            </FilterWrap>
+                <FilterSelect>
+                  <FilterTitle onClick={handleDropdownFilter}>
+                    {selectedFilter || 'A to Z'}
+                  </FilterTitle>
+                  {isOpenFilter && (
+                    <OptionsContainer ref={filterRef}>
+                      {filterOptions.map((option, index) => (
+                        <FilterOption
+                          key={index}
+                          onClick={() => handleSelectFilter(option)}
+                          $isSelected={selectedFilter === option}
+                        >
+                          {option}
+                        </FilterOption>
+                      ))}
+                    </OptionsContainer>
+                  )}
+                </FilterSelect>
+              </FilterWrap>
 
-            <NannyList>
-              {nannies.map((nanny) => (
-                <li key={nanny.name}>
-                  <NanniesCard nanny={nanny} />
-                </li>
-              ))}
-            </NannyList>
-          </WrappList>
+              <NannyList>
+                {nannies.map((nanny) => (
+                  <li key={nanny.id}>
+                    <NanniesCard nanny={nanny} />
+                  </li>
+                ))}
+              </NannyList>
+            </WrappList>
+
+            {message ? (
+              <p>{message}</p>
+            ) : (
+              <LoadMoreBtn type="button" onClick={loadMore}>
+                Load more
+              </LoadMoreBtn>
+            )}
+          </ListWrapper>
         </div>
       </WrappNannies>
     </>
