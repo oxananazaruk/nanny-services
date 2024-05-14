@@ -21,7 +21,7 @@
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.067" d="M27.787 6.147a7.326 7.326 0 0 0-10.373 0L16.001 7.56l-1.413-1.413a7.333 7.333 0 0 0-10.374 0 7.333 7.333 0 0 0 0 10.374l11.787 11.787 11.787-11.787a7.345 7.345 0 0 0 2.15-5.187 7.33 7.33 0 0 0-2.15-5.187z" stroke="#101828" fill="none"/>
     </symbol>
     <symbol id="heart-hover" viewBox="0 0 32 32">
-      <path fill="#f03f3b" style="fill:var(--color2, #f03f3b);stroke:var(--color2, #f03f3b)" stroke="#f03f3b" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.462" d="M27.787 6.147a7.345 7.345 0 0 0-5.187-2.15 7.33 7.33 0 0 0-5.186 2.15L16.001 7.56l-1.413-1.413a7.333 7.333 0 0 0-10.374 0 7.333 7.333 0 0 0 0 10.374l11.787 11.787 11.787-11.787a7.326 7.326 0 0 0 0-10.373z"/>
+      <path fill="#103931" style="fill:var(--color2, #103931);stroke:var(--color2, #103931)" stroke="#103931" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.462" d="M27.787 6.147a7.345 7.345 0 0 0-5.187-2.15 7.33 7.33 0 0 0-5.186 2.15L16.001 7.56l-1.413-1.413a7.333 7.333 0 0 0-10.374 0 7.333 7.333 0 0 0 0 10.374l11.787 11.787 11.787-11.787a7.326 7.326 0 0 0 0-10.373z"/>
     </symbol>
     <symbol id="map-pin" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M28 13.334c0 9.332-12 17.332-12 17.332s-12-8-12-17.332c0-6.627 5.373-12 12-12s12 5.373 12 12v0z" stroke="#101828" fill="none"></path>
@@ -34,9 +34,6 @@
       <path fill="#fbfbfb" style="fill:var(--color1, #fbfbfb)" d="M8 0h16a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8z"/>
       <path fill="#103931" style="fill:var(--color2, #103931)" d="M16 9.6a3.2 3.2 0 1 1 0 6.4 3.2 3.2 0 0 1 0-6.4zm0 8c3.536 0 6.4 1.432 6.4 3.2v1.6H9.6v-1.6c0-1.768 2.864-3.2 6.4-3.2z"/>
     </symbol>
-    <!-- <symbol id="x" viewBox="0 0 32 32">
-      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" d="M24 8 8 24M8 8l16 16"/>
-    </symbol> -->
      <symbol id="x" viewBox="0 0 32 32">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.462"
         d="M24 8 8 24M8 8l16 16" />

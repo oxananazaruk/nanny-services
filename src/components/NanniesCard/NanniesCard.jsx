@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import sprite from '../../img/sprite.svg';
 import {
   AboutBtn,
@@ -29,6 +29,11 @@ import {
 import { ReviewsComp } from '../ReviewsComp/ReviewsComp';
 import { ModalWindow } from '../ModalWindow/ModalWindow';
 import AppointmentForm from '../AppointmentModal/AppointmentModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorites } from '../../redux/favorites/selectors';
+import { addFavorites, removeFavorites } from '../../redux/favorites/slice';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import toast from 'react-hot-toast';
 
 export const NanniesCard = ({ nanny }) => {
   const {
@@ -50,18 +55,33 @@ export const NanniesCard = ({ nanny }) => {
     (new Date() - new Date(birthday)) / (1000 * 60 * 60 * 24 * 365.25)
   );
 
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
   const [isFavorite, setIsFavorite] = useState(false);
   const iconHeart = isFavorite ? 'heart-hover' : 'heart';
   const [isReadMore, setIsReadMore] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      if (favorites.some((fav) => fav.id === nanny.id)) {
+        setIsFavorite(true);
+      }
+    }
+  }, [favorites, nanny.id, isLoggedIn]);
 
   const handleSelectFavorite = () => {
-    setIsFavorite(!isFavorite);
-    // if (!isFavorite) {
-    //   dispatch(addFavorites(item));
-    // } else {
-    //   dispatch(removeFavorites(item._id));
-    // }
+    if (isLoggedIn) {
+      setIsFavorite(!isFavorite);
+      if (!isFavorite) {
+        dispatch(addFavorites(nanny));
+      } else {
+        dispatch(removeFavorites(nanny.id));
+      }
+    } else {
+      toast.error('Only registered users can create a favorites list');
+    }
   };
 
   const handleReadMore = () => {

@@ -4,16 +4,17 @@ export const HeaderBlock = styled.div`
   height: 88px;
   background-color: ${(p) => p.theme.color.main};
 `;
+
+export const WrappNannies = styled.div`
+  background-color: ${(p) => p.theme.color.block};
+  padding-bottom: 30px;
+`;
+
 export const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 50px;
-`;
-
-export const WrappNannies = styled.div`
-  background-color: ${(p) => p.theme.color.block};
-  padding-bottom: 30px;
 `;
 
 export const WrappList = styled.div`
@@ -22,7 +23,7 @@ export const WrappList = styled.div`
   padding-bottom: 64px;
 `;
 
-export const NannyList = styled.ul`
+export const ListNannies = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 32px;
