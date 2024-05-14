@@ -13,6 +13,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@reduxjs/toolkit": "^2.2.3",
+    "@vitejs/plugin-react-swc": "^3.6.0",
     "axios": "^1.6.8",
     "firebase": "^10.11.1",
     "modern-normalize": "^2.0.0",
@@ -25,6 +26,7 @@
     "react-router-dom": "^6.23.0",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.1.9",
+    "vite-plugin-svgr": "^4.2.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {

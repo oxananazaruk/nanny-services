@@ -59,7 +59,9 @@ export default function LogInForm() {
           <FormError>{errors.password?.message}</FormError>
         </InputWrapp>
 
-        <FormBtn type="submit">Log in</FormBtn>
+        <FormBtn type="submit" onSubmit={onSubmit}>
+          Log in
+        </FormBtn>
       </FormContainer>
     </>
   );

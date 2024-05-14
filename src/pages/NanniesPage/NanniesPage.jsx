@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { NanniesList } from '../../components/NanniesList/NanniesList';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { app } from '../../firebase';
+import { fetchNannies } from '../../redux/nannies/operations';
+import { useDispatch } from 'react-redux';
 
 const NanniesPage = () => {
-  // useEffect(() => {
-  //   const db = getFirestore(app);
-  //   console.log(db);
-  // }, []);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchNannies());
+  }, [dispatch]);
+
   return <NanniesList />;
 };
 
