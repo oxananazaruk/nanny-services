@@ -1,4 +1,4 @@
-import { FiltersComponent } from '../FiltersComponent/FiltersComponent';
+// import { FiltersComponent } from '../FiltersComponent/FiltersComponent';
 import { NanniesCard } from '../NanniesCard/NanniesCard';
 import {
   HeaderBlock,
