@@ -1,19 +1,18 @@
 import { initializeApp } from 'firebase/app';
 
-const API_KEY = import.meta.env.VITE_API;
-const DOMAIN = import.meta.env.VITE_authDomain;
-const DATABASE = import.meta.env.VITE_databaseURL;
-const MESSAGING = import.meta.env.VITE_messagingSenderId;
-const APPID = import.meta.env.VITE_appId;
+const VITE_API = import.meta.env.VITE_API;
+const VITE_AUTHDOMAIN = import.meta.env.VITE_AUTHDOMAIN;
+const VITE_DATABASEURL = import.meta.env.VITE_DATABASEURL;
+const VITE_APPID = import.meta.env.VITE_APPID;
 
 const firebaseConfig = {
-  apiKey: API_KEY,
-  authDomain: DOMAIN,
-  databaseURL: DATABASE,
+  apiKey: VITE_API,
+  authDomain: VITE_AUTHDOMAIN,
+  databaseURL: VITE_DATABASEURL,
   projectId: 'nanny-services-61617',
   storageBucket: 'nanny-services-61617.appspot.com',
-  messagingSenderId: MESSAGING,
-  appId: APPID,
+  messagingSenderId: '38815472902',
+  appId: VITE_APPID,
 };
 
 export const app = initializeApp(firebaseConfig);

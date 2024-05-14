@@ -6,7 +6,6 @@ const filterSlice = createSlice({
   reducers: {
     findNannies(state, action) {
       state.filters = action.payload;
-      console.log('state.filters', state.filters);
     },
   },
 });

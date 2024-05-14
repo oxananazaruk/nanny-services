@@ -24,9 +24,9 @@ export const FiltersComponent = () => {
   ];
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('A to Z');
-    const filterRef = useRef(null);
-    const dispatch = useDispatch();
-    const handleFilter = (filters) => dispatch(findNannies(filters));
+  const filterRef = useRef(null);
+  const dispatch = useDispatch();
+  const handleFilter = (filters) => dispatch(findNannies(filters));
 
   const handleDropdownFilter = () => {
     setIsOpenFilter(!isOpenFilter);
@@ -34,8 +34,8 @@ export const FiltersComponent = () => {
 
   const handleSelectFilter = (option) => {
     setSelectedFilter(option);
-      setIsOpenFilter(false);
-      handleFilter(option)
+    setIsOpenFilter(false);
+    handleFilter(option);
   };
 
   const handleClickOutside = (event) => {
@@ -51,7 +51,6 @@ export const FiltersComponent = () => {
     };
   });
 
-  console.log(selectedFilter);
   return (
     <>
       <Filter>Filters</Filter>
