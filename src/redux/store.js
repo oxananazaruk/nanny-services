@@ -13,11 +13,13 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
 import { nanniesReducer } from './nannies/slice';
 import { favoritesReducer } from './favorites/slice';
+import { filterReducer } from './filters/slice';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   nannies: nanniesReducer,
   favorites: favoritesReducer,
+  filters: filterReducer,
 });
 
 const persistConfig = {

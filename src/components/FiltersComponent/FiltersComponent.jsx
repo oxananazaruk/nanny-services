@@ -9,6 +9,8 @@ import {
   OptionsContainer,
 } from './FiltersComponent.styled';
 import sprite from '../../img/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { findNannies } from '../../redux/filters/slice';
 
 export const FiltersComponent = () => {
   const filterOptions = [
@@ -22,7 +24,9 @@ export const FiltersComponent = () => {
   ];
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('A to Z');
-  const filterRef = useRef(null);
+    const filterRef = useRef(null);
+    const dispatch = useDispatch();
+    const handleFilter = (filters) => dispatch(findNannies(filters));
 
   const handleDropdownFilter = () => {
     setIsOpenFilter(!isOpenFilter);
@@ -30,7 +34,8 @@ export const FiltersComponent = () => {
 
   const handleSelectFilter = (option) => {
     setSelectedFilter(option);
-    setIsOpenFilter(false);
+      setIsOpenFilter(false);
+      handleFilter(option)
   };
 
   const handleClickOutside = (event) => {
@@ -45,6 +50,8 @@ export const FiltersComponent = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
+
+  console.log(selectedFilter);
   return (
     <>
       <Filter>Filters</Filter>
