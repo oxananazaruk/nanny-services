@@ -31,14 +31,14 @@ function App() {
         /> */}
 
         <Route path="/nannies" element={<NanniesPage />} />
-        {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
+        <Route path="/favorites" element={<FavoritesPage />} />
 
-        <Route
+        {/* <Route
           path="/favorites"
           element={
             <PrivateRoute redirectTo="/" component={<FavoritesPage />} />
           }
-        />
+        /> */}
 
         <Route path="*" element={<HomePage />} />
       </Route>
