@@ -17,7 +17,7 @@ export const FavoritesComponent = ({ favorites }) => {
         <div className="container">
           <ListWrapper>
             <WrappList>
-              <FiltersComponent />
+              {/* <FiltersComponent /> */}
 
               <ListNannies>
                 {favorites.map((nanny) => (

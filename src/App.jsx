@@ -3,7 +3,7 @@ import SharedLayout from './components/SharedLayout/SharedLayout';
 import { lazy, useEffect } from 'react';
 import { refreshUser } from './redux/auth/operations';
 import { useDispatch } from 'react-redux';
-// import { PrivateRoute } from './PrivateRoute';
+import { PrivateRoute } from './PrivateRoute';
 // import { RestrictedRoute } from './RestrictedRoute';
 
 const HomePage = lazy(() => import('../src/pages/HomePage/HomePage'));
@@ -31,14 +31,14 @@ function App() {
         /> */}
 
         <Route path="/nannies" element={<NanniesPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
+        {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
 
-        {/* <Route
+        <Route
           path="/favorites"
           element={
             <PrivateRoute redirectTo="/" component={<FavoritesPage />} />
           }
-        /> */}
+        />
 
         <Route path="*" element={<HomePage />} />
       </Route>
