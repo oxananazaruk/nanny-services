@@ -38,7 +38,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        env: VITE_API: ${{secrets.VITE_API}}
+        env:
+          VITE_API: ${{secrets.VITE_API}}
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
