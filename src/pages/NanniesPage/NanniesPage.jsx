@@ -9,7 +9,7 @@ import {
   selectNannies,
 } from '../../redux/nannies/selectors';
 import { selectFilter } from '../../redux/filters/selectors';
-import { sortedNannies } from '../../helpers/sertedNannies';
+import { sortedNannies } from '../../helpers/sortedNannies';
 import { Loader } from '../../components/Loader/Loader';
 import { Error } from '../../components/Error/Error';
 

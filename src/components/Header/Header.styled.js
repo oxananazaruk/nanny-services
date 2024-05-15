@@ -10,11 +10,9 @@ export const HeaderNav = styled.header`
 `;
 
 export const HeaderStyled = styled.div`
-  /* padding: 20px 96px; */
   border-bottom: ${(p) => p.theme.border.button};
   padding: 10px 15px;
   @media (min-width: 768px) {
-    /* padding: 10px; */
     display: flex;
     justify-content: space-between;
     align-items: center;

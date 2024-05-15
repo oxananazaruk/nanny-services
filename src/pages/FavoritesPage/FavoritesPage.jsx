@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectFavorites } from '../../redux/favorites/selectors';
 import { FavoritesComponent } from '../../components/FavoritesComponent/FavoritesComponent';
 import { ErrorFav, HeaderBlock, WrappNannies } from './FavoritesPage.styled';
-import { sortedNannies } from '../../helpers/sertedNannies';
+import { sortedNannies } from '../../helpers/sortedNannies';
 import { selectFilter } from '../../redux/filters/selectors';
 
 const FavoritesPage = () => {
