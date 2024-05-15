@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export const HeaderNav = styled.header`
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   position: absolute;
   z-index: 2;
 `;
