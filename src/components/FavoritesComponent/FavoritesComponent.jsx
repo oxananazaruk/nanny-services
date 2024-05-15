@@ -47,9 +47,13 @@ export const FavoritesComponent = ({ favorites }) => {
           </ListNannies>
         </WrappList>
 
-        <LoadMoreBtn type="button" onClick={loadMoreNannies}>
-          Load more
-        </LoadMoreBtn>
+        {currentPage * itemsPerPage < favorites.length ? (
+          <LoadMoreBtn type="button" onClick={loadMoreNannies}>
+            Load more
+          </LoadMoreBtn>
+        ) : (
+          <p>These are all the babysitters you liked</p>
+        )}
       </ListWrapper>
     </>
   );
