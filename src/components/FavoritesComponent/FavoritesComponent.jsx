@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { FiltersComponent } from '../FiltersComponent/FiltersComponent';
 import { NanniesCard } from '../NanniesCard/NanniesCard';
 import {
@@ -8,6 +9,29 @@ import {
 } from './FavoritesComponent.styled';
 
 export const FavoritesComponent = ({ favorites }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [displayedNannies, setDisplayedNannies] = useState([]);
+  const itemsPerPage = 3;
+
+  const loadNannies = () => {
+    const start = currentPage * itemsPerPage;
+    const end = start + itemsPerPage;
+    return favorites.slice(start, end);
+  };
+
+  useEffect(() => {
+    setDisplayedNannies(loadNannies(0));
+    setCurrentPage(1);
+  }, []);
+
+  const loadMoreNannies = () => {
+    setDisplayedNannies((prevNannies) => [
+      ...prevNannies,
+      ...loadNannies(currentPage),
+    ]);
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
   return (
     <>
       <ListWrapper>
@@ -15,7 +39,7 @@ export const FavoritesComponent = ({ favorites }) => {
           <FiltersComponent />
 
           <ListNannies>
-            {favorites.map((nanny) => (
+            {displayedNannies.map((nanny) => (
               <li key={nanny.id}>
                 <NanniesCard nanny={nanny} />
               </li>
@@ -23,7 +47,9 @@ export const FavoritesComponent = ({ favorites }) => {
           </ListNannies>
         </WrappList>
 
-        <LoadMoreBtn type="button">Load more</LoadMoreBtn>
+        <LoadMoreBtn type="button" onClick={loadMoreNannies}>
+          Load more
+        </LoadMoreBtn>
       </ListWrapper>
     </>
   );
