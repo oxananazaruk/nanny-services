@@ -43,7 +43,7 @@ jobs:
           VITE_AUTHDOMAIN: ${{secrets.VITE_AUTHDOMAIN}}
           VITE_DATABASEURL: ${{secrets.VITE_DATABASEURL}}
           VITE_APPID: ${{secrets.VITE_APPID}}
-        run: npm install npm run build cp ./dist/index.html ./dist/404.html
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
