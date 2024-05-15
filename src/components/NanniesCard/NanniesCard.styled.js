@@ -1,12 +1,21 @@
 import styled from 'styled-components';
 
 export const NannyCard = styled.div`
-  width: 1184px;
-  padding: 24px;
+  width: 290px;
+  padding: 4px;
   border-radius: 24px;
   background-color: ${(p) => p.theme.color.white};
-  display: flex;
-  gap: 24px;
+
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 24px;
+    width: 750px;
+    padding: 10px;
+  }
+  @media (min-width: 1440px) {
+    width: 1184px;
+    padding: 24px;
+  }
 `;
 
 export const ImgWrapp = styled.div`
@@ -43,7 +52,14 @@ export const RoundGreen = styled.div`
 `;
 
 export const MainWrapp = styled.div`
-  width: 990px;
+  width: 290px;
+  @media (min-width: 768px) {
+    width: 490px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 990px;
+  }
 `;
 
 export const NannyText = styled.p`
@@ -54,21 +70,30 @@ export const NannyText = styled.p`
 `;
 
 export const InfoWrapp = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
 `;
 
 export const BtnWrapp = styled.div`
   display: flex;
-  gap: 48px;
+  gap: 78px;
+  margin-bottom: 10px;
+  @media (min-width: 768px) {
+    gap: 48px;
+    margin-bottom: 0;
+  }
 `;
 
 export const InfoList = styled.ul`
-  display: flex;
-  gap: 16px;
-  align-items: center;
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
 `;
 
 export const InfoItem = styled.li`
@@ -179,5 +204,3 @@ export const AppointmentBtn = styled.button`
   background-color: ${(p) => p.theme.color.main};
   border: none;
 `;
-
-

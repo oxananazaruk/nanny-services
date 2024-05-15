@@ -26,30 +26,44 @@ export const WrappHome = styled.div`
   height: 100vh;
   width: 100%;
   background-color: ${(p) => p.theme.color.main};
-  border-radius: 30px;
+
+  @media (min-width: 768px) {
+    border-radius: 30px;
+  }
 `;
 
 export const WrappTitle = styled.div`
-  max-width: 517px;
-  margin-left: 128px;
-  padding-top: 251px;
+  max-width: 290px;
+  margin-left: 18px;
+  padding-top: 125px;
+  @media (min-width: 768px) {
+    max-width: 517px;
+    margin-left: 128px;
+    padding-top: 251px;
+  }
 `;
 
 export const HomeTitle = styled.h1`
   font-weight: 500;
-  font-size: 70px;
+  font-size: 40px;
   line-height: 1;
   letter-spacing: -0.03em;
   color: ${(p) => p.theme.color.white};
+  @media (min-width: 768px) {
+    font-size: 70px;
+  }
 `;
 
 export const HomeText = styled.p`
   font-weight: 400;
-  font-size: 28px;
+  font-size: 18px;
   line-height: 1.07;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.color.white};
   margin-top: 28px;
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 export const HomeBtn = styled(Link)`
@@ -85,8 +99,12 @@ export const StatBlock = styled.div`
   gap: 16px;
   align-items: center;
   position: absolute;
-  right: 50px;
+  right: 1px;
   bottom: 50px;
+  @media (min-width: 768px) {
+    right: 50px;
+    bottom: 50px;
+  }
 `;
 
 export const CheckBlock = styled.div`

@@ -2,13 +2,17 @@ import styled from 'styled-components';
 
 export const HeaderBlock = styled.div`
   height: 88px;
+  width: 100vw;
   background-color: ${(p) => p.theme.color.main};
 `;
 export const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding-bottom: 50px;
+  @media (min-width: 768px) {
+    align-items: center;
+  }
 `;
 
 export const WrappNannies = styled.div`
@@ -17,9 +21,14 @@ export const WrappNannies = styled.div`
 `;
 
 export const WrappList = styled.div`
-  padding-left: 91px;
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 34px;
+  @media (min-width: 768px) {
+    padding-left: 91px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
 `;
 
 export const NannyList = styled.ul`

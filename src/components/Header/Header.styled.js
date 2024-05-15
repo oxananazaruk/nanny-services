@@ -10,19 +10,32 @@ export const HeaderNav = styled.header`
 `;
 
 export const HeaderStyled = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 96px;
+  /* padding: 20px 96px; */
   border-bottom: ${(p) => p.theme.border.button};
+  padding: 10px 15px;
+  @media (min-width: 768px) {
+    /* padding: 10px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media (min-width: 1440px) {
+    padding: 20px 96px;
+  }
 `;
 
 export const HeaderLogo = styled(Link)`
   font-weight: 500;
-  font-size: 24px;
+  font-size: 14px;
   line-height: 1.17;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.color.white};
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1440px) {
+    font-size: 24px;
+  }
 `;
 
 export const NavList = styled.nav`

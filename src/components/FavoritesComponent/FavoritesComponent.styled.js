@@ -1,15 +1,5 @@
 import styled from 'styled-components';
 
-// export const HeaderBlock = styled.div`
-//   height: 88px;
-//   background-color: ${(p) => p.theme.color.main};
-// `;
-
-// export const WrappNannies = styled.div`
-//   background-color: ${(p) => p.theme.color.block};
-//   padding-bottom: 30px;
-// `;
-
 export const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,9 +8,14 @@ export const ListWrapper = styled.div`
 `;
 
 export const WrappList = styled.div`
-  padding-left: 91px;
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-left: 0;
+  padding-top: 10px;
+  padding-bottom: 34px;
+  @media (min-width: 768px) {
+    padding-left: 91px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
 `;
 
 export const ListNannies = styled.ul`

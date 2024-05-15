@@ -40,9 +40,16 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .container {
-        width: 1440px;
-        padding: 0 32px;
+        width: 320px;
+        padding: 0 20px;
         margin: 0 auto;
+         @media (min-width: 768px) {
+            width: 768px;
+            padding: 0 32px;
+        }
+        @media (min-width: 1440px) {
+            width: 1440px;
+        }
     }
 
     a {

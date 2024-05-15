@@ -48,8 +48,11 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 18px;
-  width: 472px;
+  width: 240px;
   margin: 0 auto;
+  @media (min-width: 768px) {
+    width: 472px;
+  }
 `;
 
 export const FormList = styled.div`
