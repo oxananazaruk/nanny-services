@@ -42,7 +42,7 @@ out the application opens
 
 Also, the user can sort the list of babysitters alphabetically - ascending (from
 A to Z) or descending (from Z to A), filter by price, sort by popularity - from
-the lowest rating to the highest. 
+the lowest rating to the highest.
 
 ![Filters](./src/assets/filters.jpg)
 
@@ -73,3 +73,7 @@ This page contains a list of ads added to your favorites
 - styled-components
 - yup
 - firebase
+
+## Model [Model](https://www.figma.com/file/u36ajEOsnwio2GDGiabVPD/Nanny-Sevices?type=design&node-id=0-1&mode=design&t=CZpMnnOCRwAYc81O-0)
+
+## Technical task [Technical task](https://docs.google.com/document/d/19ugM1gvOw81nCyALr4EZs3dmv6OfJm94VjupcytbnJY/edit)
