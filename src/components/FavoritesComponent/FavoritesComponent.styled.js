@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-export const HeaderBlock = styled.div`
-  height: 88px;
-  background-color: ${(p) => p.theme.color.main};
-`;
+// export const HeaderBlock = styled.div`
+//   height: 88px;
+//   background-color: ${(p) => p.theme.color.main};
+// `;
 
-export const WrappNannies = styled.div`
-  background-color: ${(p) => p.theme.color.block};
-  padding-bottom: 30px;
-`;
+// export const WrappNannies = styled.div`
+//   background-color: ${(p) => p.theme.color.block};
+//   padding-bottom: 30px;
+// `;
 
 export const ListWrapper = styled.div`
   display: flex;

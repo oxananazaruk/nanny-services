@@ -1,17 +1,23 @@
 import { useSelector } from 'react-redux';
 import { selectFavorites } from '../../redux/favorites/selectors';
 import { FavoritesComponent } from '../../components/FavoritesComponent/FavoritesComponent';
+import { ErrorFav, HeaderBlock, WrappNannies } from './FavoritesPage.styled';
 
 const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);
 
   return (
     <>
-      {favorites.length > 0 ? (
-        <FavoritesComponent favorites={favorites} />
-      ) : (
-        <h2>There are no favorite adverts yet... </h2>
-      )}
+      <HeaderBlock />
+      <WrappNannies>
+        <div className="container">
+          {favorites.length > 0 ? (
+            <FavoritesComponent favorites={favorites} />
+          ) : (
+            <ErrorFav>There are no favorite yet... </ErrorFav>
+          )}
+        </div>
+      </WrappNannies>
     </>
   );
 };
