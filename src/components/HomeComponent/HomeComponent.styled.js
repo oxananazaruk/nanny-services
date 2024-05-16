@@ -36,7 +36,7 @@ export const WrappTitle = styled.div`
   padding-top: 125px;
   @media (min-width: 768px) {
     max-width: 517px;
-    margin-left: 128px;
+    margin-left: 96px;
     padding-top: 251px;
   }
 `;
