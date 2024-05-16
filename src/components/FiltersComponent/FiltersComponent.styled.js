@@ -16,6 +16,13 @@ export const FilterWrap = styled.div`
   position: relative;
   width: 226px;
   margin-bottom: 32px;
+  margin-right: auto;
+  @media (min-width: 768px) {
+    margin-right: 540px;
+  }
+  @media (min-width: 1440px) {
+    margin-right: 1040px;
+  }
 `;
 
 export const FilterSelect = styled.div`

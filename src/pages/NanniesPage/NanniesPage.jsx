@@ -33,9 +33,7 @@ const NanniesPage = () => {
 
   return (
     <>
-      {visibleNannies.length > 0 && (
-        <NanniesList nannies={visibleNannies} loadMore={loadMore} />
-      )}
+      <NanniesList nannies={visibleNannies} loadMore={loadMore} />
       {isLoading && <Loader />}
       {isError && <Error />}
     </>

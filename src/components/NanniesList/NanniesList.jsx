@@ -3,6 +3,7 @@ import {
   ListWrapper,
   LoadMoreBtn,
   NannyList,
+  NoText,
   WrappList,
   WrappNannies,
 } from './NanniesList.styled';
@@ -23,16 +24,20 @@ export const NanniesList = ({ nannies, loadMore }) => {
             <WrappList>
               <FiltersComponent />
 
-              <NannyList>
-                {nannies.map((nanny) => (
-                  <li key={nanny.id}>
-                    <NanniesCard nanny={nanny} />
-                  </li>
-                ))}
-              </NannyList>
+              {nannies.length > 0 ? (
+                <NannyList>
+                  {nannies.map((nanny) => (
+                    <li key={nanny.id}>
+                      <NanniesCard nanny={nanny} />
+                    </li>
+                  ))}
+                </NannyList>
+              ) : (
+                <NoText>No nannies to show</NoText>
+              )}
             </WrappList>
 
-            {message ? (
+            {message || nannies.length === 0 ? (
               <p>{message}</p>
             ) : (
               <LoadMoreBtn type="button" onClick={loadMore}>

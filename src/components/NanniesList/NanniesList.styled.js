@@ -18,6 +18,7 @@ export const ListWrapper = styled.div`
 export const WrappNannies = styled.div`
   background-color: ${(p) => p.theme.color.block};
   padding-bottom: 30px;
+  min-height: 100vh;
 `;
 
 export const WrappList = styled.div`
@@ -47,4 +48,9 @@ export const LoadMoreBtn = styled.button`
   letter-spacing: -0.01em;
   color: ${(p) => p.theme.color.white};
   background-color: ${(p) => p.theme.color.main};
+`;
+
+export const NoText = styled.p`
+  padding-top: 130px;
+  text-align: center;
 `;

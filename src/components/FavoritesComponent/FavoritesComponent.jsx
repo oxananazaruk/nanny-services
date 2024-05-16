@@ -7,10 +7,14 @@ import {
   LoadMoreBtn,
   WrappList,
 } from './FavoritesComponent.styled';
+import { useSelector } from 'react-redux';
+import { selectFilter } from '../../redux/filters/selectors';
+import { sortedNannies } from '../../helpers/sortedNannies';
 
 export const FavoritesComponent = ({ favorites }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [displayedNannies, setDisplayedNannies] = useState([]);
+  const filterOption = useSelector(selectFilter);
   const itemsPerPage = 3;
 
   const loadNannies = () => {
@@ -32,19 +36,25 @@ export const FavoritesComponent = ({ favorites }) => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
+  const visibleFavorites = sortedNannies(displayedNannies, filterOption);
+
   return (
     <>
       <ListWrapper>
         <WrappList>
           <FiltersComponent />
 
-          <ListNannies>
-            {displayedNannies.map((nanny) => (
-              <li key={nanny.id}>
-                <NanniesCard nanny={nanny} />
-              </li>
-            ))}
-          </ListNannies>
+          {visibleFavorites.length > 0 ? (
+            <ListNannies>
+              {visibleFavorites.map((nanny) => (
+                <li key={nanny.id}>
+                  <NanniesCard nanny={nanny} />
+                </li>
+              ))}
+            </ListNannies>
+          ) : (
+            <p>No nannies to show</p>
+          )}
         </WrappList>
 
         {currentPage * itemsPerPage < favorites.length ? (
