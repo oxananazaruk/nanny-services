@@ -22,6 +22,17 @@ export const HeaderStyled = styled.div`
   }
 `;
 
+export const HeaderBtns = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+  }
+  @media (min-width: 1440px) {
+    gap: 92px;
+  }
+`;
+
 export const HeaderLogo = styled(Link)`
   font-weight: 500;
   font-size: 14px;

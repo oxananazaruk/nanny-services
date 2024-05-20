@@ -10,8 +10,10 @@ import {
   FormTile,
   InputWrapp,
 } from './LogInForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/auth/operations';
+import { selectError } from '../../redux/auth/selectors';
+import toast from 'react-hot-toast';
 
 const loginSchema = yup
   .object({
@@ -27,6 +29,8 @@ const loginSchema = yup
   .required();
 
 export default function LogInForm() {
+  const error = useSelector(selectError);
+
   const {
     register,
     handleSubmit,
@@ -37,8 +41,12 @@ export default function LogInForm() {
 
   const dispatch = useDispatch();
 
-  const onSubmit = ({ email, password }) =>
+  const onSubmit = ({ email, password }) => {
     dispatch(loginUser({ email, password }));
+    if (error) {
+      toast.error('Invalid login or password. Please check your details.');
+    }
+  };
 
   return (
     <>

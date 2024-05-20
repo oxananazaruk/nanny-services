@@ -10,8 +10,10 @@ import {
   FormTile,
   InputWrapp,
 } from './LogInForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
+import { selectError } from '../../redux/auth/selectors';
+import toast from 'react-hot-toast';
 
 const registerSchema = yup
   .object({
@@ -31,6 +33,8 @@ const registerSchema = yup
   .required();
 
 export default function RegistrationForm() {
+  const error = useSelector(selectError);
+
   const {
     register,
     handleSubmit,
@@ -43,6 +47,9 @@ export default function RegistrationForm() {
 
   const onSubmit = ({ email, password, name }) => {
     dispatch(registerUser({ email, password, name }));
+    if (error) {
+      toast.error('Invalid login or password. Please check your details.');
+    }
   };
 
   return (

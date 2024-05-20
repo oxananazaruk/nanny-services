@@ -17,24 +17,31 @@ export const FavoritesComponent = ({ favorites }) => {
   const filterOption = useSelector(selectFilter);
   const itemsPerPage = 3;
 
-  const loadNannies = () => {
-    const start = currentPage * itemsPerPage;
+  const loadNannies = (page, array) => {
+    const start = page * itemsPerPage;
     const end = start + itemsPerPage;
-    return favorites.slice(start, end);
+    return array.slice(start, end);
   };
 
   useEffect(() => {
-    setDisplayedNannies(loadNannies(0));
+    console.log('currentPage', currentPage);
+    setDisplayedNannies(loadNannies(currentPage, favorites));
     setCurrentPage(1);
-  }, []);
+    console.log('currentPage', currentPage);
+  }, [currentPage, favorites]);
 
   const loadMoreNannies = () => {
     setDisplayedNannies((prevNannies) => [
       ...prevNannies,
-      ...loadNannies(currentPage),
+      ...loadNannies(currentPage, favorites),
     ]);
     setCurrentPage((prevPage) => prevPage + 1);
   };
+
+  // useEffect(() => {
+  //   setDisplayedNannies(loadNannies(currentPage, favorites));
+  //   setCurrentPage(1);
+  // }, [favorites]);
 
   const visibleFavorites = sortedNannies(displayedNannies, filterOption);
 
