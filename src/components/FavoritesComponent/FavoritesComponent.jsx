@@ -35,7 +35,6 @@ export const FavoritesComponent = ({ favorites }) => {
       allNannies.push(...loadNannies(page, favorites));
     }
     setDisplayedNannies(allNannies);
-    console.log('allNannies', allNannies);
   }, [favorites, currentPage]);
 
   const loadMoreNannies = () => {
@@ -72,7 +71,7 @@ export const FavoritesComponent = ({ favorites }) => {
             Load more
           </LoadMoreBtn>
         ) : (
-          <p>These are all the babysitters you liked</p>
+          <p>These are all babysitters you liked</p>
         )}
       </ListWrapper>
     </>
