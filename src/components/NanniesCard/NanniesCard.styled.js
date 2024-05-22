@@ -191,6 +191,13 @@ export const AboutBtn = styled.button`
   color: ${(p) => p.theme.color.text};
   border: none;
   background-color: transparent;
+  &:hover,
+  &:focus {
+    text-shadow:
+      0 0 10px ${(p) => p.theme.color.price},
+      0 0 20px ${(p) => p.theme.color.price},
+      0 0 40px ${(p) => p.theme.color.price};
+  }
 `;
 
 export const AppointmentBtn = styled.button`
@@ -202,5 +209,11 @@ export const AppointmentBtn = styled.button`
   padding: 14px 28px;
   border-radius: 30px;
   background-color: ${(p) => p.theme.color.main};
-  border: none;
+  border: 1px solid transparent;
+  &:hover,
+  &:focus {
+    background-color: ${(p) => p.theme.color.block};
+    color: ${(p) => p.theme.color.main};
+    border: 1px solid ${(p) => p.theme.color.main};
+  }
 `;

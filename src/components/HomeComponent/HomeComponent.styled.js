@@ -78,7 +78,7 @@ export const HomeBtn = styled(Link)`
   margin-top: 64px;
   &:hover,
   &:focus {
-    border: ${(p) => p.theme.border.red};
+    border: 1px solid ${(p) => p.theme.color.price};
   }
 `;
 

@@ -59,7 +59,13 @@ export const LinkStyled = styled(NavLink)`
   letter-spacing: -0.01em;
   color: ${(p) => p.theme.color.white};
   position: relative;
-
+  &:hover {
+    color: ${(p) => p.theme.color.price};
+    text-shadow:
+      0 0 10px ${(p) => p.theme.color.price},
+      0 0 20px ${(p) => p.theme.color.price},
+      0 0 40px ${(p) => p.theme.color.price};
+  }
   &.active::after {
     content: '';
     position: absolute;

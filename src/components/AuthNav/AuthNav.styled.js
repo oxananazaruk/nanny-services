@@ -22,6 +22,7 @@ export const LogBtn = styled.button`
   &:hover,
   &:focus {
     background-color: ${(p) => p.theme.color.main};
+    border: 1px solid ${(p) => p.theme.color.price};
   }
   @media (min-width: 768px) {
     font-size: 16px;

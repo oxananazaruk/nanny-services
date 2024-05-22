@@ -28,7 +28,6 @@ function App() {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<HomePage />} />
         <Route path="nannies" element={<NanniesPage />} />
-        {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
         <Route
           path="favorites"
           element={<PrivateRoute component={FavoritesPage} redirectTo="/" />}
