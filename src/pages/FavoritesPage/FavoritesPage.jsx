@@ -14,7 +14,7 @@ const FavoritesPage = () => {
           {favorites.length > 0 ? (
             <FavoritesComponent favorites={favorites} />
           ) : (
-            <ErrorFav>There are no favorite yet... </ErrorFav>
+            <ErrorFav>There are no favorites yet... </ErrorFav>
           )}
         </div>
       </WrappNannies>
